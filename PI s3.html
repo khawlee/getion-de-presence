@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendia Dashboard</title>
+  <link rel="stylesheet" href="pi.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  
+
+<div class="sidebar">
+  
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.png" class="logo-img" alt="Attendia">
+    <span class="logo-text">Attendia</span>
+    <i class='bx bx-chevron-right toggle' id="toggle"></i>
+  </div>
+
+  <!-- Menu -->
+  <ul class="nav-list">
+    <li><a href="#"><i class='bx bx-home'></i><span class="links-name">Dashboard</span></a></li>
+    <li>
+  <a href="#" id="addStudentBtn">
+    <i class='bx bx-user-plus'></i>
+    <span class="links-name">Ajouter Étudiant</span>
+  </a>
+</li>
+    <li><a href="#"><i class='bx bx-bar-chart'></i><span class="links-name">Statistics</span></a></li>
+    <li><a href="#"><i class='bx bx-bell'></i><span class="links-name">Notifications</span></a></li>
+    <li><a href="#"><i class='bx bx-time'></i><span class="links-name">Attendance</span></a></li>
+    <li><a href="#"><i class='bx bx-heart'></i><span class="links-name">Favorites</span></a></li>
+
+    <!-- Dark Mode -->
+    <li class="mode">
+      <a href="#" id="darkToggle">
+        <i class='bx bx-moon'></i>
+        <span class="links-name">Dark Mode</span>
+      </a>
+    </li>
+
+    <!-- Logout -->
+    <li class="logout">
+      <a href="#"><i class='bx bx-log-out'></i><span class="links-name">Logout</span></a>
+    </li>
+  </ul>
+</div>
+<div class="header">
+  <div class="header-right">
+
+    <!-- Notification -->
+    <div class="notification">
+      <i class="bx bx-bell"></i>
+      <span class="badge">3</span>
+
+      <div class="notification-box">
+        <h4>Notifications</h4>
+        <p class="sub">3 new notifications</p>
+
+        <div class="notif-item">
+          <i class="bx bx-user"></i>
+          <div>
+            <strong>New student added</strong>
+            <small>2 min ago</small>
+          </div>
+        </div>
+
+        <div class="notif-item">
+          <i class="bx bx-check"></i>
+          <div>
+            <strong>Attendance updated</strong>
+            <small>1 hour ago</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="profile">
+      <img src="logo.png" alt="profile">
+
+      <div class="profile-box">
+        <strong>Admin Attendia</strong>
+        <small>admin@attendia.com</small>
+        <hr>
+        <a href="#">Profile</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<section class="home-section">
+  <h1>Dashboard Sidebar</h1>
+  <div class="form-overlay" id="studentForm">
+  <div class="form-container">
+    <h2>Ajouter un Étudiant</h2>
+
+    <form>
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" required>
+      </div>
+
+      <div class="form-group">
+        <label>Prénom</label>
+        <input type="text" required>
+      </div>
+
+      <div class="form-group">
+        <label>Matricule</label>
+        <input type="text" required>
+      </div>
+
+      <div class="form-group">
+        <label>Filière</label>
+        <select required>
+          <option value="">Choisir une filière</option>
+          <option>DWM</option>
+          <option>RSS</option>
+          <option>DSI</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Niveau</label>
+        <select required>
+          <option value="">Choisir niveau</option>
+          <option>L1</option>
+          <option>L2</option>
+          <option>L3</option>
+          <option>M1</option>
+          <option>M2</option>
+        </select>
+      </div>
+
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+</div>
+</section>
+
+<script src="pi.js"></script>
+</body>
+</html>
