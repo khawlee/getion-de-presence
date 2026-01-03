@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('etudiants.urls')),  # toutes les urls de l'app etudiants
+    
 ]
 
 # Pour servir les images en développement

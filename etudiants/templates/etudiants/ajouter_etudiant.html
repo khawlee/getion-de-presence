@@ -1,21 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ajouter Étudiant</title>
-</head>
-<body>
-    <h1>Ajouter un étudiant</h1>
+{% extends 'etudiants/admin_dashboard.html' %}
+{% load static %}
 
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ajouter</button>
-    </form>
+{% block content %}
+<div class="container">
+    <div class="form-card">
+        <h2>Ajouter un Étudiant</h2>
 
-    <a href="{% url 'admin_page' %}">Retour Admin</a>
-</body>
-</html>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="form-group">
+                <label for="id_nom">Nom</label>
+                {{ form.nom }}
+            </div>
+            <div class="form-group">
+                <label for="id_prenom">Prénom</label>
+                {{ form.prenom }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_matricule">Matricule</label>
+                {{ form.matricule }}
+            </div>
+            <div class="form-group">
+                <label for="id_photo">Photo de visage</label>
+                {{ form.photo }}
+            </div>
+            <div class="form-group">
+                <label for="id_filiere">Filière</label>
+                {{ form.filiere }}
+            </div>
+            <div class="form-group">
+                <label for="id_niveau">Niveau</label>
+                {{ form.niveau }}
+            </div>
+
+            <button type="submit" class="btn-submit">Ajouter</button>
+        </form>
+
+        <a href="{% url 'admin_page' %}" style="display:block; margin-top:10px;">Retour au Dashboard</a>
+    </div>
+</div>
+{% endblock %}

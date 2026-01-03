@@ -4,7 +4,12 @@ from .models import Etudiant
 import face_recognition
 import numpy as np
 
+def login_view(request):
+    # Page de login (index.html)
+    return render(request, 'index.html')
+
 def admin_page(request):
+    # Dashboard admin
     return render(request, 'etudiants/admin_dashboard.html')
 
 def ajouter_etudiant(request):
@@ -16,18 +21,21 @@ def ajouter_etudiant(request):
             # Charger l'image
             image = face_recognition.load_image_file(photo_file)
             encodages = face_recognition.face_encodings(image)
+            
             if not encodages:
                 message = "Aucun visage détecté sur la photo."
             else:
-                encodage_nouveau = encodages[0].tolist()  # convertir en liste pour TextField
+                encodage_nouveau = encodages[0].tolist()
+                
                 # Vérifier doublon
                 doublon = False
                 for etu in Etudiant.objects.all():
                     encodes_existant = np.array(eval(etu.encodage))
                     distance = np.linalg.norm(encodes_existant - encodage_nouveau)
-                    if distance < 0.6:  # seuil typique de reconnaissance faciale
+                    if distance < 0.6:  # seuil typique reconnaissance faciale
                         doublon = True
                         break
+                
                 if doublon:
                     message = "Un étudiant avec ce visage existe déjà !"
                 else:

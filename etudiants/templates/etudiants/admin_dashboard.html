@@ -1,10 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Admin Étudiants</title>
+  <meta charset="UTF-8">
+  <title>Attendia Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/pi.css' %}">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
-    <h1>Page Admin</h1>
-    <a href="{% url 'ajouter_etudiant' %}">Ajouter un étudiant</a>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="logo">
+    <img src="{% static 'images/logo.png' %}" class="logo-img" alt="Attendia">
+    <span class="logo-text">Attendia</span>
+    <i class='bx bx-chevron-right toggle' id="toggle"></i>
+  </div>
+
+  <ul class="nav-list">
+    <li><a href="#"><i class='bx bx-home'></i><span class="links-name">Dashboard</span></a></li>
+    <li>
+      <a href="{% url 'ajouter_etudiant' %}">
+        <i class='bx bx-user-plus'></i>
+        <span class="links-name">Ajouter Étudiant</span>
+      </a>
+    </li>
+    <li><a href="#"><i class='bx bx-bar-chart'></i><span class="links-name">Statistics</span></a></li>
+    <li><a href="#"><i class='bx bx-bell'></i><span class="links-name">Notifications</span></a></li>
+    <li><a href="#"><i class='bx bx-time'></i><span class="links-name">Attendance</span></a></li>
+
+    <li class="mode">
+      <a href="#" id="darkToggle">
+        <i class='bx bx-moon'></i>
+        <span class="links-name">Dark Mode</span>
+      </a>
+    </li>
+
+    <li class="logout">
+      <a href="{% url 'login' %}"><i class='bx bx-log-out'></i><span class="links-name">Logout</span></a>
+    </li>
+  </ul>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-right">
+    <!-- Notification et profile -->
+  </div>
+</div>
+
+<!-- CONTENU PRINCIPAL -->
+<div class="main-content">
+  {% block content %}
+  <!-- Les pages filles vont injecter leur contenu ici -->
+  {% endblock %}
+</div>
+
+<script src="{% static 'js/pi.js' %}"></script>
 </body>
 </html>
