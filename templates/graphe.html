@@ -1,0 +1,124 @@
+{% extends 'etudiants/admin_dashboard.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/graphe.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+        <h1>Dashboard</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card present">
+                <div class="stat-label">Présents</div>
+                <div class="stat-value">120</div>
+            </div>
+            
+            <div class="stat-card absent">
+                <div class="stat-label">Absents</div>
+                <div class="stat-value">30</div>
+            </div>
+            
+            <div class="stat-card retard">
+                <div class="stat-label">Retard</div>
+                <div class="stat-value">10</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-title">Présence (Semaine)</div>
+                <div class="line-chart">
+                    <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.05" />
+                            </linearGradient>
+                        </defs>
+                        <polyline
+                            fill="url(#gradient)"
+                            stroke="none"
+                            points="0,40 100,50 200,12 300,5 400,15 400,200 0,200"
+                        />
+                        <polyline
+                            fill="none"
+                            stroke="#6366f1"
+                            stroke-width="3"
+                            points="0,40 100,50 200,12 300,5 400,15"
+                        />
+                        <circle cx="0" cy="40" r="4" fill="#6366f1"/>
+                        <circle cx="100" cy="50" r="4" fill="#6366f1"/>
+                        <circle cx="200" cy="12" r="4" fill="#6366f1"/>
+                        <circle cx="300" cy="5" r="4" fill="#6366f1"/>
+                        <circle cx="400" cy="15" r="4" fill="#6366f1"/>
+                    </svg>
+                </div>
+                <div class="x-axis">
+                    <span>Lun</span>
+                    <span>Mar</span>
+                    <span>Mer</span>
+                    <span>Jeu</span>
+                    <span>Ven</span>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Absences par Filière</div>
+                <div class="bar-chart">
+                    <div class="bar-container">
+                        <div class="bar" style="height: 180px;"></div>
+                        <div class="bar-label">DWM</div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar" style="height: 120px;"></div>
+                        <div class="bar-label">RSS</div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar" style="height: 75px;"></div>
+                        <div class="bar-label">DSI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Retards (Semaine)</div>
+                <div class="line-chart">
+                    <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.05" />
+                            </linearGradient>
+                        </defs>
+                        <polyline
+                            fill="url(#gradient2)"
+                            stroke="none"
+                            points="0,25 100,60 200,10 300,30 400,140 400,200 0,200"
+                        />
+                        <polyline
+                            fill="none"
+                            stroke="#3b82f6"
+                            stroke-width="3"
+                            points="0,25 100,60 200,10 300,30 400,140"
+                        />
+                        <circle cx="0" cy="25" r="4" fill="#3b82f6"/>
+                        <circle cx="100" cy="60" r="4" fill="#3b82f6"/>
+                        <circle cx="200" cy="10" r="4" fill="#3b82f6"/>
+                        <circle cx="300" cy="30" r="4" fill="#3b82f6"/>
+                        <circle cx="400" cy="140" r="4" fill="#3b82f6"/>
+                    </svg>
+                </div>
+                <div class="x-axis">
+                    <span>Lun</span>
+                    <span>Mar</span>
+                    <span>Mer</span>
+                    <span>Jeu</span>
+                    <span>Ven</span>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

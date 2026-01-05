@@ -16,6 +16,8 @@ body {
     justify-content: center;
     align-items: flex-start; /* formulaire en haut */
     min-height: calc(100vh - 120px); /* header + padding */
+    position: relative;
+    left: 340px;
 }
 
 /* Card du formulaire */

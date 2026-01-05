@@ -1,0 +1,151 @@
+/* Reset minimal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Conteneur principal DU CONTENU UNIQUEMENT */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    margin-top: 30px;
+}
+
+/* Titre */
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #1e293b;
+}
+
+/* ====== STAT CARDS ====== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* TOUJOURS 3 sur la même ligne */
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid transparent;
+}
+
+.stat-card.present {
+    border-left-color: #22c55e;
+}
+
+.stat-card.absent {
+    border-left-color: #ef4444;
+}
+
+.stat-card.retard {
+    border-left-color: #3b82f6;
+}
+
+.stat-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 44px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* ====== CHARTS ====== */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* TOUJOURS 3 graphes côte à côte */
+    gap: 25px;
+}
+
+
+.chart-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* ====== LINE CHART ====== */
+.line-chart {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}
+
+.line-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Axe X */
+.x-axis {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* ====== BAR CHART ====== */
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    height: 220px;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar {
+    width: 55px;
+    background: #ef4444;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bar:hover {
+    transform: scaleY(1.05);
+    opacity: 0.85;
+}
+
+.bar-label {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}

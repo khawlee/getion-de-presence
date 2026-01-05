@@ -8,6 +8,10 @@ def login_view(request):
     # Page de login (index.html)
     return render(request, 'index.html')
 
+def graphe(request):
+    return render(request, 'graphe.html')
+
+
 def admin_page(request):
     # Dashboard admin
     return render(request, 'etudiants/admin_dashboard.html')
