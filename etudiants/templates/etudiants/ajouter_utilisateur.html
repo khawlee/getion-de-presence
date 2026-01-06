@@ -1,0 +1,33 @@
+{% extends 'etudiants/admin_dashboard.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/ajouter_utilisateur.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-content">
+    <div class="form-card">
+        <h2>Ajouter un utilisateur</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Nom d’utilisateur</label>
+            <input type="text" name="username" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Mot de passe</label>
+            <input type="password" name="password" required>
+
+            <label>Rôle</label>
+            <select name="role" required>
+                <option value="SCOLARITE">Agent de scolarité</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+
+            <button type="submit">Créer</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

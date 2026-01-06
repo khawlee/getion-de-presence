@@ -6,6 +6,7 @@
   <title>Attendia | Admin Login</title>
   <!-- Lien vers le CSS via Django static -->
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="icon" href="{% static 'images/logo.png' %}">
 </head>
 <body>
 
@@ -24,9 +25,11 @@
       <h2>Hello!</h2>
       <p>Sign in as Admin</p>
 
-      <form id="loginForm">
-        <input type="text" id="username" placeholder="Admin Username" required>
-        <input type="password" id="password" placeholder="Password" required>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
 
         <button type="submit">Login</button>
       </form>
@@ -38,6 +41,6 @@
 </div>
 
 <!-- Lien vers le JS via Django static -->
-<script src="{% static 'js/index.js' %}"></script>
+
 </body>
 </html>
