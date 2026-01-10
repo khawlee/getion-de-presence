@@ -6,33 +6,53 @@
 {% endblock %}
 
 {% block content %}
-<div class="ruju"></div>
-<div class="dashboard-content">
-    <h2>Gestion des utilisateurs</h2>
-    <a href="{% url 'ajouter_utilisateur' %}" class="btn-add">+ Ajouter un utilisateur</a>
 
-    <table class="user-table">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Rôle</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for u in utilisateurs %}
-            <tr>
-                <td>{{ u.username }}</td>
-                <td>{{ u.email }}</td>
-                <td>{{ u.role }}</td>
-                <td><a href="#" class="btn-delete">Supprimer</a></td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="4">Aucun utilisateur</td></tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="dashboard-content users-page">
+
+    <!-- HEADER -->
+    <div class="users-header">
+        <h2>Liste des utilisateurs</h2>
+        <a href="{% url 'ajouter_utilisateur' %}" class="btn-add">
+            + Ajouter un utilisateur
+        </a>
+    </div>
+
+    <!-- BARRE DE RECHERCHE -->
+    <div class="search-container">
+        <input type="text" placeholder="Rechercher un utilisateur">
+        <button>Rechercher</button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in utilisateurs %}
+                <tr>
+                    <td>{{ u.username }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.role }}</td>
+                    <td>
+                        <a href="#" class="btn-delete">Supprimer</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Aucun utilisateur</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 </div>
-</div>
+
 {% endblock %}

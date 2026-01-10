@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils import timezone
 
 class Etudiant(models.Model):
     FILIERES = [
-        ('informatique', 'Informatique'),
-        ('gestion', 'Gestion'),
-        ('marketing', 'Marketing'),
+        ('dsi', 'Dsi'),
+        ('rss', 'Rss'),
+        ('dwm', 'Dwm'),
     ]
 
     NIVEAUX = [
@@ -45,21 +46,7 @@ class Utilisateur(models.Model):
     
 
 
-class Presence(models.Model):
-    etudiant = models.ForeignKey('Etudiant', on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
 
-    presence_debut = models.BooleanField(default=False)
-    presence_fin = models.BooleanField(default=False)
 
-    statut = models.CharField(
-        max_length=10,
-        choices=[('PRESENT', 'Présent'), ('ABSENT', 'Absent')],
-        default='ABSENT'
-    )
 
-    class Meta:
-        unique_together = ('etudiant', 'date')
 
-    def calculer_statut(self):
-        self.statut = 'PRESENT' if self.presence_debut and self.presence_fin else 'ABSENT'

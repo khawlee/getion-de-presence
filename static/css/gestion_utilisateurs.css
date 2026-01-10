@@ -1,41 +1,106 @@
-.main h1{
-    margin-bottom:20px;
+/* ========================= */
+/* PAGE UTILISATEURS */
+/* ========================= */
+
+.users-page {
+    width: 100%;
+    align-self: flex-start;
 }
 
-.btn-add{
-    display:inline-block;
-    margin-bottom:15px;
-    padding:10px 15px;
-    background:#6366f1;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.user-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
+.users-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ========================= */
+/* BOUTON AJOUT */
+/* ========================= */
+
+.btn-add {
+    padding: 10px 16px;
+    background: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* ========================= */
+/* RECHERCHE */
+/* ========================= */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-container input {
+    width: 260px;           /* 🔥 longueur réduite */
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.search-container button {
+    padding: 10px 18px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ========================= */
+/* TABLE */
+/* ========================= */
+
+.table-card {
+    width: 100%;
+    max-width: 95%;        /* 🔥 largeur augmentée */
+    margin: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .user-table th,
-.user-table td{
-    padding:14px;
-    text-align:left;
+.user-table td {
+    padding: 14px;
+    text-align: left;
 }
 
-.user-table thead{
-    background:#e0e7ff;
+.user-table thead {
+    background: #e0e7ff;
 }
 
-.user-table tr:nth-child(even){
-    background:#f9fafb;
+.user-table tr:nth-child(even) {
+    background: #f9fafb;
 }
 
-.btn-delete{
-    color:#ef4444;
-    text-decoration:none;
-    font-weight:600;
+/* ========================= */
+/* ACTION */
+/* ========================= */
+
+.btn-delete {
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: 600;
 }

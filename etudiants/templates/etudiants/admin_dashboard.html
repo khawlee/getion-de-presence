@@ -22,13 +22,25 @@
         {% if request.session.role == 'SUPER_ADMIN' %}
         <li><a href="{% url 'gestion_utilisateurs' %}"><i class='bx bx-user'></i><span class="links-name">Gestion des utilisateurs</span></a></li>
         {% endif %}
-        <li><a href="{% url 'login' %}"><i class='bx bx-log-out'></i><span class="links-name">Logout</span></a></li>
+        <li><a href="#"><i class='bx bx-camera'></i><span class="links-name">Gestion des caméras</span></a></li>
+
     </ul>
 </div>
 
-<div class="main">
-    {% block content %}{% endblock %}
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-right">
+    
+  </div>
 </div>
+
+<div class="main">
+    <div class="main-inner">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+
 
 <script src="{% static 'js/pi.js' %}"></script>
 </body>
